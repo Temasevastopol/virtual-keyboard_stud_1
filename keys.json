@@ -1,0 +1,972 @@
+[
+    [
+       {
+        "event_code" : "Backquote",
+        "rus" : {
+            "caseDown": "ё",
+            "caseUp": "Ё",
+            "caps": "Ё",
+            "capsShift": "ё"
+            },
+        "eng" : {
+            "caseDown": "`",
+            "caseUp": "~",
+            "caps": "`",
+            "capsShift": "~"
+            }
+        },
+        {
+        "event_code": "Digit1",
+        "rus" :{
+            "caseDown": "1",
+            "caseUp": "!",
+            "caps": "1",
+            "capsShift": "!"
+        },
+        "eng" :{
+            "caseDown": "1",
+            "caseUp": "!",
+            "caps": "1",
+            "capsShift": "!"
+        }
+       },
+       {
+        "event_code": "Digit2",
+        "rus" :{
+            "caseDown": "2",
+            "caseUp": "\"",
+            "caps": "2",
+            "capsShift": "\""
+        },
+        "eng" :{
+            "caseDown": "2",
+            "caseUp": "@",
+            "caps": "2",
+            "capsShift": "@"
+        }
+       },
+       {
+        "event_code": "Digit3",
+        "rus" :{
+            "caseDown": "3",
+            "caseUp": "№",
+            "caps": "3",
+            "capsShift": "№"
+        },
+        "eng" :{
+            "caseDown": "3",
+            "caseUp": "#",
+            "caps": "3",
+            "capsShift": "#"
+        }
+       }, 
+       {
+        "event_code": "Digit4",
+        "rus" :{
+            "caseDown": "4",
+            "caseUp": ";",
+            "caps": "4",
+            "capsShift": ";"
+        },
+        "eng" :{
+            "caseDown": "4",
+            "caseUp": "$",
+            "caps": "4",
+            "capsShift": "$"
+        }
+       },
+       {
+        "event_code": "Digit5",
+        "rus" :{
+            "caseDown": "5",
+            "caseUp": "%",
+            "caps": "5",
+            "capsShift": "%"
+        },
+        "eng" :{
+            "caseDown": "5",
+            "caseUp": "%",
+            "caps": "5",
+            "capsShift": "%"
+        }
+       }, 
+       {
+        "event_code": "Digit6",
+        "rus" :{
+            "caseDown": "6",
+            "caseUp": ":",
+            "caps": "6",
+            "capsShift": ":"
+        },
+        "eng" :{
+            "caseDown": "6",
+            "caseUp": "^",
+            "caps": "6",
+            "capsShift": "^"
+        }
+       }, 
+       {
+        "event_code": "Digit7",
+        "rus" :{
+            "caseDown": "7",
+            "caseUp": "?",
+            "caps": "7",
+            "capsShift": "?"
+        },
+        "eng" :{
+            "caseDown": "7",
+            "caseUp": "&",
+            "caps": "7",
+            "capsShift": "&"
+        }
+       },
+       {
+        "event_code": "Digit8",
+        "rus" :{
+            "caseDown": "8",
+            "caseUp": "*",
+            "caps": "8",
+            "capsShift": "*"
+        },
+        "eng" :{
+            "caseDown": "8",
+            "caseUp": "*",
+            "caps": "8",
+            "capsShift": "*"
+        }
+       },
+       {
+        "event_code": "Digit9",
+        "rus" :{
+            "caseDown": "9",
+            "caseUp": "(",
+            "caps": "9",
+            "capsShift": "("
+        },
+        "eng" :{
+            "caseDown": "9",
+            "caseUp": "(",
+            "caps": "9",
+            "capsShift": "("
+        }
+       },
+       {
+        "event_code": "Digit0",
+        "rus" :{
+            "caseDown": "0",
+            "caseUp": ")",
+            "caps": "0",
+            "capsShift": ")"
+        },
+        "eng" :{
+            "caseDown": "0",
+            "caseUp": ")",
+            "caps": "0",
+            "capsShift": ")"
+            }
+       },
+       {
+        "event_code": "Minus",
+        "rus" :{
+            "caseDown": "-",
+            "caseUp": "_",
+            "caps": "-",
+            "capsShift": "_"
+            },
+        "eng" :{
+            "caseDown": "-",
+            "caseUp": "_",
+            "caps": "-",
+            "capsShift": "_"
+            }
+       },
+       {
+        "event_code": "Equal",
+        "rus" :{
+            "caseDown": "=",
+            "caseUp": "+",
+            "caps": "=",
+            "capsShift": "+"
+            },
+        "eng" :{
+            "caseDown": "=",
+            "caseUp": "+",
+            "caps": "=",
+            "capsShift": "+"
+            }
+       },
+       {
+        "event_code": "Backspace",
+        "rus" :{
+            "caseDown": "Backspace",
+            "caseUp": "Backspace",
+            "caps": "Backspace",
+            "capsShift": "Backspace"
+            },
+        "eng" :{
+            "caseDown": "Backspace",
+            "caseUp": "Backspace",
+            "caps": "Backspace",
+            "capsShift": "Backspace"
+            }
+       }       
+    ],
+    [
+        {
+         "event_code" : "Tab",
+         "rus" :{
+            "caseDown": "Tab",
+            "caseUp": "Tab",
+            "caps": "Tab",
+            "capsShift": "Tab"
+            },
+        "eng" :{
+            "caseDown": "Tab",
+            "caseUp": "Tab",
+            "caps": "Tab",
+            "capsShift": "Tab"
+            }
+        },
+        {
+        "event_code" : "KeyQ",
+        "rus" :{
+            "caseDown": "й",
+            "caseUp": "Й",
+            "caps": "Й",
+            "capsShift": "й"
+            },
+        "eng" :{
+            "caseDown": "q",
+            "caseUp": "Q",
+            "caps": "Q",
+            "capsShift": "q"
+            }
+        },
+        {
+        "event_code" : "KeyW",
+        "rus" :{
+            "caseDown": "ц",
+            "caseUp": "Ц",
+            "caps": "Ц",
+            "capsShift": "ц"
+            },
+        "eng" :{
+            "caseDown": "w",
+            "caseUp": "W",
+            "caps": "W",
+            "capsShift": "w"
+            }
+        },
+        {
+        "event_code" : "KeyE",
+        "rus" :{
+            "caseDown": "у",
+            "caseUp": "У",
+            "caps": "У",
+            "capsShift": "у"
+            },
+        "eng" :{
+            "caseDown": "e",
+            "caseUp": "E",
+            "caps": "E",
+            "capsShift": "e"
+            }
+        },
+        {
+        "event_code" : "KeyR",
+        "rus" :{
+            "caseDown": "к",
+            "caseUp": "К",
+            "caps": "К",
+            "capsShift": "к"
+        },
+        "eng" :{
+            "caseDown": "r",
+            "caseUp": "R",
+            "caps": "R",
+            "capsShift": "r"
+            }
+        },
+        {
+        "event_code" : "KeyT",
+        "rus" :{
+            "caseDown": "е",
+            "caseUp": "Е",
+            "caps": "Е",
+            "capsShift": "е"
+            },
+        "eng" :{
+            "caseDown": "t",
+            "caseUp": "T",
+            "caps": "T",
+            "capsShift": "t"
+            }
+        },
+        {
+        "event_code" : "KeyY",
+        "rus" :{
+            "caseDown": "н",
+            "caseUp": "Н",
+            "caps": "Н",
+            "capsShift": "н"
+            },
+        "eng" :{
+            "caseDown": "y",
+            "caseUp": "Y",
+            "caps": "Y",
+            "capsShift": "y"
+            }
+        },
+        {
+        "event_code" : "KeyU",
+        "rus" :{
+            "caseDown": "г",
+            "caseUp": "Г",
+            "caps": "Г",
+            "capsShift": "г"
+            },
+        "eng" :{
+            "caseDown": "u",
+            "caseUp": "U",
+            "caps": "U",
+            "capsShift": "u"
+           }
+        },
+        {
+        "event_code" : "KeyI",
+        "rus" :{
+            "caseDown": "ш",
+            "caseUp": "Ш",
+            "caps": "Ш",
+            "capsShift": "ш"
+            },
+        "eng" :{
+            "caseDown": "i",
+            "caseUp": "I",
+            "caps": "I",
+            "capsShift": "i"
+            }
+        },
+        {
+        "event_code" : "KeyO",
+        "rus" :{
+            "caseDown": "щ",
+            "caseUp": "Щ",
+            "caps": "Щ",
+            "capsShift": "щ"
+            },
+        "eng" :{
+            "caseDown": "o",
+            "caseUp": "O",
+            "caps": "O",
+            "capsShift": "o"
+            }
+        },
+        {
+        "event_code" : "KeyP",
+        "rus" :{
+            "caseDown": "з",
+            "caseUp": "З",
+            "caps": "З",
+            "capsShift": "з"
+            },
+        "eng" :{
+            "caseDown": "p",
+            "caseUp": "P",
+            "caps": "P",
+            "capsShift": "p"
+            }
+        },
+        {
+        "event_code" : "BracketLeft",
+        "rus" :{
+            "caseDown": "х",
+            "caseUp": "Х",
+            "caps": "Х",
+            "capsShift": "х"
+            },
+        "eng" :{
+            "caseDown": "[",
+            "caseUp": "{",
+            "caps": "[",
+            "capsShift": "{"
+            }
+        },
+        {
+        "event_code" : "BracketRight",
+        "rus" :{
+            "caseDown": "ъ",
+            "caseUp": "Ъ",
+            "caps": "Ъ",
+            "capsShift": "ъ"
+            },
+        "eng" :{
+            "caseDown": "]",
+            "caseUp": "}",
+            "caps": "]",
+            "capsShift": "}"
+            }
+        },
+        {
+        "event_code" : "Backslash",
+        "rus" :{
+            "caseDown": "\\",
+            "caseUp": "/",
+            "caps": "\\",
+            "capsShift": "/"
+            },
+        "eng" :{
+            "caseDown": "\\",
+            "caseUp": "|",
+            "caps": "\\",
+            "capsShift": "|"
+            }
+        },
+        {
+        "event_code" : "Delete",
+        "rus" :{
+            "caseDown": "Del",
+            "caseUp": "Del",
+            "caps": "Del",
+            "capsShift": "Del"
+            },
+        "eng" :{
+            "caseDown": "Del",
+            "caseUp": "Del",
+            "caps": "Del",
+            "capsShift": "Del"
+           }
+        }
+     ],
+     [
+        {
+        "event_code" : "CapsLock",
+        "rus" :{
+            "caseDown": "CapsLock",
+            "caseUp": "CapsLock",
+            "caps": "CapsLock",
+            "capsShift": "CapsLock"
+            },
+        "eng" :{
+            "caseDown": "CapsLock",
+            "caseUp": "CapsLock",
+            "caps": "CapsLock",
+            "capsShift": "CapsLock"
+            }
+        },
+        {
+        "event_code" : "KeyA",
+        "rus" :{
+            "caseDown": "ф",
+            "caseUp": "Ф",
+            "caps": "Ф",
+            "capsShift": "ф"
+            },
+        "eng" :{
+            "caseDown": "a",
+            "caseUp": "A",
+            "caps": "A",
+            "capsShift": "a"
+            }
+        },
+        {
+        "event_code" : "KeyS",
+        "rus" :{
+            "caseDown": "ы",
+            "caseUp": "Ы",
+            "caps": "Ы",
+            "capsShift": "ы"
+            },
+        "eng" :{
+            "caseDown": "s",
+            "caseUp": "S",
+            "caps": "S",
+            "capsShift": "s"
+            }
+        },
+        {
+        "event_code" : "KeyD",
+        "rus" :{
+            "caseDown": "в",
+            "caseUp": "В",
+            "caps": "В",
+            "capsShift": "в"
+            },
+        "eng" :{
+            "caseDown": "d",
+            "caseUp": "D",
+            "caps": "D",
+            "capsShift": "d"
+            }
+        },
+        {
+        "event_code" : "KeyF",
+        "rus" :{
+            "caseDown": "а",
+            "caseUp": "А",
+            "caps": "А",
+            "capsShift": "а"
+            },
+        "eng" :{
+            "caseDown": "f",
+            "caseUp": "F",
+            "caps": "F",
+            "capsShift": "f"
+            }
+        },
+        {
+        "event_code" : "KeyG",
+        "rus" :{
+            "caseDown": "п",
+            "caseUp": "П",
+            "caps": "П",
+            "capsShift": "п"
+            },
+        "eng" :{
+            "caseDown": "g",
+            "caseUp": "G",
+            "caps": "G",
+            "capsShift": "g"
+            }
+        },
+        {
+        "event_code" : "KeyH",
+        "rus" :{
+            "caseDown": "р",
+            "caseUp": "Р",
+            "caps": "Р",
+            "capsShift": "р"
+            },
+        "eng" :{
+            "caseDown": "h",
+            "caseUp": "H",
+            "caps": "H",
+            "capsShift": "h"
+            }
+        },
+        {
+        "event_code" : "KeyJ",
+        "rus" :{
+            "caseDown": "о",
+            "caseUp": "О",
+            "caps": "О",
+            "capsShift": "о"
+            },
+        "eng" :{
+            "caseDown": "j",
+            "caseUp": "J",
+            "caps": "J",
+            "capsShift": "j"
+            }
+        },
+        {
+        "event_code" : "KeyK",
+        "rus" :{
+            "caseDown": "л",
+            "caseUp": "Л",
+            "caps": "Л",
+            "capsShift": "л"
+            },
+        "eng" :{
+            "caseDown": "k",
+            "caseUp": "K",
+            "caps": "K",
+            "capsShift": "k"
+            }
+        },
+        {
+        "event_code" : "KeyL",
+        "rus" :{
+            "caseDown": "д",
+            "caseUp": "Д",
+            "caps": "Д",
+            "capsShift": "д"
+            },
+        "eng" :{
+            "caseDown": "l",
+            "caseUp": "L",
+            "caps": "L",
+            "capsShift": "l"
+            }
+        },
+        {
+        "event_code" : "Semicolon",
+        "rus" :{
+            "caseDown": "ж",
+            "caseUp": "Ж",
+            "caps": "Ж",
+            "capsShift": "ж"
+            },
+        "eng" :{
+            "caseDown": ";",
+            "caseUp": ":",
+            "caps": ";",
+            "capsShift": ":"
+            }
+        },
+        {
+        "event_code" : "Quote",
+        "rus" :{
+            "caseDown": "э",
+            "caseUp": "Э",
+            "caps": "Э",
+            "capsShift": "э"
+            },
+        "eng" :{
+            "caseDown": "'",
+            "caseUp": "\"",
+            "caps": "'",
+            "capsShift": "\""
+            }
+        },
+        {
+        "event_code" : "Enter",
+        "rus" :{
+            "caseDown": "Enter",
+            "caseUp": "Enter",
+            "caps": "Enter",
+            "capsShift": "Enter"
+            },
+        "eng" :{
+            "caseDown": "Enter",
+            "caseUp": "Enter",
+            "caps": "Enter",
+            "capsShift": "Enter"
+            }
+        }
+    ],
+    [
+        {
+        "event_code" : "ShiftLeft",
+        "rus" :{
+            "caseDown": "Shift",
+            "caseUp": "Shift",
+            "caps": "Shift",
+            "capsShift": "Shift"
+            },
+        "eng" :{
+            "caseDown": "Shift",
+            "caseUp": "Shift",
+            "caps": "Shift",
+            "capsShift": "Shift"
+            }
+        },
+        {
+        "event_code" : "KeyZ",
+        "rus" :{
+            "caseDown": "я",
+            "caseUp": "Я",
+            "caps": "Я",
+            "capsShift": "я"
+            },
+        "eng" :{
+            "caseDown": "z",
+            "caseUp": "Z",
+            "caps": "Z",
+            "capsShift": "z"
+            }
+        },
+        {
+        "event_code" : "KeyX",
+        "rus" :{
+            "caseDown": "ч",
+            "caseUp": "Ч",
+            "caps": "Ч",
+            "capsShift": "ч"
+            },
+        "eng" :{
+            "caseDown": "x",
+            "caseUp": "X",
+            "caps": "X",
+            "capsShift": "x"
+            }
+        },
+        {
+        "event_code" : "KeyC",
+        "rus" :{
+            "caseDown": "с",
+            "caseUp": "С",
+            "caps": "С",
+            "capsShift": "с"
+            },
+        "eng" :{
+            "caseDown": "c",
+            "caseUp": "C",
+            "caps": "C",
+            "capsShift": "c"
+            }
+        },
+        {
+        "event_code" : "KeyV",
+        "rus" :{
+            "caseDown": "м",
+            "caseUp": "М",
+            "caps": "М",
+            "capsShift": "м"
+            },
+        "eng" :{
+            "caseDown": "v",
+            "caseUp": "V",
+            "caps": "V",
+            "capsShift": "v"
+            }
+        },
+        {
+        "event_code" : "KeyB",
+        "rus" :{
+            "caseDown": "и",
+            "caseUp": "И",
+            "caps": "И",
+            "capsShift": "и"
+            },
+        "eng" :{
+            "caseDown": "b",
+            "caseUp": "B",
+            "caps": "B",
+            "capsShift": "b"
+            }
+        },
+        {
+        "event_code" : "KeyN",
+        "rus" :{
+            "caseDown": "т",
+            "caseUp": "Т",
+            "caps": "Т",
+            "capsShift": "т"
+            },
+        "eng" :{
+            "caseDown": "n",
+            "caseUp": "N",
+            "caps": "N",
+            "capsShift": "n"
+            }
+        },
+        {
+        "event_code" : "KeyM",
+        "rus" :{
+            "caseDown": "ь",
+            "caseUp": "Ь",
+            "caps": "Ь",
+            "capsShift": "ь"
+            },
+        "eng" :{
+            "caseDown": "m",
+            "caseUp": "M",
+            "caps": "M",
+            "capsShift": "m"
+            }
+        },
+        {
+        "event_code" : "Comma",
+        "rus" :{
+            "caseDown": "б",
+            "caseUp": "Б",
+            "caps": "Б",
+            "capsShift": "б"
+            },
+        "eng" :{
+            "caseDown": ",",
+            "caseUp": "<",
+            "caps": ",",
+            "capsShift": "<"
+            }
+        },
+        {
+        "event_code" : "Period",
+        "rus" :{
+            "caseDown": "ю",
+            "caseUp": "Ю",
+            "caps": "Ю",
+            "capsShift": "ю"
+            },
+        "eng" :{
+            "caseDown": ".",
+            "caseUp": ">",
+            "caps": ".",
+            "capsShift": ">"
+            }
+        },
+        {
+        "event_code" : "Slash",
+        "rus" :{
+            "caseDown": ".",
+            "caseUp": ",",
+            "caps": ".",
+            "capsShift": ","
+            },
+        "eng" :{
+            "caseDown": "/",
+            "caseUp": "?",
+            "caps": "/",
+            "capsShift": "?"
+            }
+        },
+        {
+        "event_code" : "ArrowUp",
+        "rus" :{
+            "caseDown": "&#9650",
+            "caseUp": "&#9650",
+            "caps": "&#9650",
+            "capsShift": "&#9650"
+            },
+        "eng" :{
+            "caseDown": "&#9650",
+            "caseUp": "&#9650",
+            "caps": "&#9650",
+            "capsShift": "&#9650"
+            }
+        },
+        {
+        "event_code" : "ShiftRight",
+        "rus" :{
+            "caseDown": "Shift",
+            "caseUp": "Shift",
+            "caps": "Shift",
+            "capsShift": "Shift"
+            },
+        "eng" :{
+            "caseDown": "Shift",
+            "caseUp": "Shift",
+            "caps": "Shift",
+            "capsShift": "Shift"
+            }
+        }
+     ],
+     [
+        {
+        "event_code" : "ConstolLeft",
+        "rus" :{
+            "caseDown": "Ctrl",
+            "caseUp": "Ctrl",
+            "caps": "Ctrl",
+            "capsShift": "Ctrl"
+            },
+        "eng" :{
+            "caseDown": "Ctrl",
+            "caseUp": "Ctrl",
+            "caps": "Ctrl",
+            "capsShift": "Ctrl"
+            }
+        },
+        {
+        "event_code" : "MetaLeft",
+        "rus" :{
+            "caseDown": "Win",
+            "caseUp": "Win",
+            "caps": "Win",
+            "capsShift": "Win"
+            },
+        "eng" :{
+            "caseDown": "Win",
+            "caseUp": "Win",
+            "caps": "Win",
+            "capsShift": "Win"
+            }
+        },
+        {
+        "event_code" : "AltLeft",
+        "rus" :{
+            "caseDown": "Alt",
+            "caseUp": "Alt",
+            "caps": "Alt",
+            "capsShift": "Alt"
+            },
+        "eng" :{
+            "caseDown": "Alt",
+            "caseUp": "Alt",
+            "caps": "Alt",
+            "capsShift": "Alt"
+            }  
+        },
+        {
+        "event_code" : "Space",
+        "rus" :{
+            "caseDown": "",
+            "caseUp": "",
+            "caps": "",
+            "capsShift": ""
+            },
+        "eng" :{
+            "caseDown": "",
+            "caseUp": "",
+            "caps": "",
+            "capsShift": ""
+            }    
+        },
+        {
+        "event_code" : "AltRight",
+        "rus" :{
+            "caseDown": "Alt",
+            "caseUp": "Alt",
+            "caps": "Alt",
+            "capsShift": "Alt"
+            },
+        "eng" :{
+            "caseDown": "Alt",
+            "caseUp": "Alt",
+            "caps": "Alt",
+            "capsShift": "Alt"
+            }  
+        },
+        {
+        "event_code" : "ArrowLeft",
+        "rus" :{
+            "caseDown": "&#9668",
+            "caseUp": "&#9668",
+            "caps": "&#9668",
+            "capsShift": "&#9668"
+            },
+        "eng" :{
+            "caseDown": "&#9668",
+            "caseUp": "&#9668",
+            "caps": "&#9668",
+            "capsShift": "&#9668"
+            }
+        },
+        {
+        "event_code" : "ArrowDown",
+        "rus" :{
+            "caseDown": "&#9660",
+            "caseUp": "&#9660",
+            "caps": "&#9660",
+            "capsShift": "&#9660"
+            },
+        "eng" :{
+            "caseDown": "&#9660",
+            "caseUp": "&#9660",
+            "caps": "&#9660",
+            "capsShift": "&#9660"
+            }
+        },
+        {
+        "event_code" : "ArrowRight",
+        "rus" :{
+            "caseDown": "&#9658",
+            "caseUp": "&#9658",
+            "caps": "&#9658",
+            "capsShift": "&#9658"
+            },
+        "eng" :{
+            "caseDown": "&#9658",
+            "caseUp": "&#9658",
+            "caps": "&#9658",
+            "capsShift": "&#9658"
+            }
+        },
+        {
+        "event_code" : "ConstolRight",
+        "rus" :{
+            "caseDown": "Ctrl",
+            "caseUp": "Ctrl",
+            "caps": "Ctrl",
+            "capsShift": "Ctrl"
+            },
+        "eng" :{
+            "caseDown": "Ctrl",
+            "caseUp": "Ctrl",
+            "caps": "Ctrl",
+            "capsShift": "Ctrl"
+            }
+        }
+     ]
+]
