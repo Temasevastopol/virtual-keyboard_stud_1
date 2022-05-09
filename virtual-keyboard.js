@@ -1,0 +1,164 @@
+
+const getData = async () => await(await fetch('./keys.json')).json();
+const keyboard_key = await getData();
+
+// отрисовка клавиатуры
+const BODY = document.body;
+const MAIN_CONTEINER = document.createElement('section');
+    MAIN_CONTEINER.classList.add('centralizer');
+    BODY.prepend(MAIN_CONTEINER);
+
+const TITLE = document.createElement('p');
+    TITLE.classList.add('title');
+    TITLE.innerText = 'RSS Виртуальная клавиатура'
+    MAIN_CONTEINER.append(TITLE);
+
+const TEXTAREA = document.createElement('textarea');
+    TEXTAREA.classList.add('textarea');
+    TEXTAREA.setAttribute('row', 5);
+    TEXTAREA.setAttribute('cols', 50);
+    MAIN_CONTEINER.append(TEXTAREA);
+
+const KEYBOARD = document.createElement('div');
+    KEYBOARD.classList.add('keyboard');
+    MAIN_CONTEINER.append(KEYBOARD);
+
+const DISCRIPTION = document.createElement('p');
+    DISCRIPTION.classList.add('disription');
+    DISCRIPTION.innerText = 'Клавиатура создана в операционной системе Windows';
+    MAIN_CONTEINER.append(DISCRIPTION);
+
+const LANGUAGE = document.createElement('p');
+    LANGUAGE.classList.add('language');
+    LANGUAGE.innerText = 'Для переключения языка комбинация: левыe ctrl + alt';
+    MAIN_CONTEINER.append(LANGUAGE);
+
+//console.log(keyboard_key.length);
+function addSpan(nameClass, lang, value){
+    const spanInLang = document.createElement('span');
+    spanInLang.classList.add(nameClass);
+    spanInLang.classList.add('hidden');
+    spanInLang.innerHTML = value;
+    lang.append(spanInLang);
+}
+
+for(let i=0; i<keyboard_key.length; i++){ 
+    const l = keyboard_key[i].length;
+    const KEYBOARD_ROW = document.createElement('div');
+        KEYBOARD_ROW.classList.add('keyboard-row');
+
+        for(let j=0; j<l; j++){
+            const KEYBOARD_KEY = document.createElement('div');
+            KEYBOARD_KEY.classList.add('keyboard-key');
+
+            KEYBOARD_KEY.classList.add(`${keyboard_key[i][j].event_code}`);
+                const rus_lang = document.createElement('span');
+                rus_lang.classList.add('rus');
+                rus_lang.classList.add('hidden');
+                    addSpan('caseDown', rus_lang, `${keyboard_key[i][j].rus.caseDown}`);
+                    addSpan('caseUp', rus_lang, `${keyboard_key[i][j].rus.caseUp}`);
+                    addSpan('caps', rus_lang, `${keyboard_key[i][j].rus.caps}`);
+                    addSpan('capsShift', rus_lang, `${keyboard_key[i][j].rus.capsShift}`);
+                KEYBOARD_KEY.append(rus_lang);
+
+                const eng_lang = document.createElement('span');
+                eng_lang.classList.add('eng');
+                    addSpan('caseDown', eng_lang, `${keyboard_key[i][j].eng.caseDown}`);
+                    addSpan('caseUp', eng_lang, `${keyboard_key[i][j].eng.caseUp}`);
+                    addSpan('caps', eng_lang, `${keyboard_key[i][j].eng.caps}`);
+                    addSpan('capsShift', eng_lang, `${keyboard_key[i][j].eng.capsShift}`);
+                KEYBOARD_KEY.append(eng_lang);
+            KEYBOARD_ROW.append(KEYBOARD_KEY);
+        }
+
+        KEYBOARD.append(KEYBOARD_ROW);
+}
+
+const caseDownEng = document.querySelectorAll('.eng .caseDown');
+caseDownEng.forEach(item => {
+    item.classList.remove('hidden');
+})
+const KEYBOARD_KEYS = document.querySelectorAll('.keyboard-key');
+
+// нажатие на клавиши
+let str = '';
+const array = [];
+let posFocus = 0;
+TEXTAREA.setSelectionRange(posFocus, posFocus);  
+TEXTAREA.focus();
+
+TEXTAREA.onclick = function (){
+    posFocus = TEXTAREA.selectionStart;
+    console.log('pos after click = ', posFocus);
+}
+console.log(posFocus);
+
+const specialBtn = ['.Backspace', '.Delete', '.Tab', '.CapsLock', '.Enter', '.ShiftLeft', '.ShiftRight', '.ConstolLeft', '.MetaLeft', '.AltLeft', '.AltRight', '.ConstolRight']
+const downKey = (event) => {
+    if(event.target.closest('.keyboard-key')){
+        KEYBOARD_KEYS.forEach(el => {
+            if (el.classList.contains('active')){
+                el.classList.remove('active');
+            }
+        })
+        if (event.target.classList.contains('keyboard-key')){
+            event.target.classList.add('active');
+        }
+        else event.target.parentNode.parentNode.classList.add('active');
+
+        if (event.target.closest('.Backspace')){
+                str = str.slice(0, posFocus-1) + str.slice(posFocus);
+                //array.splice(posFocus-1, 1);
+                posFocus = posFocus - 2;
+        } else if (event.target.closest('.Tab')) {
+                str = str.slice(0, posFocus) + '  ' + str.slice(posFocus);
+                posFocus = posFocus + 1;
+                //array.splice(posFocus, 0, ' ', ' ', ' ', ' ');
+                //posFocus = posFocus + 3;
+        } else if (event.target.closest('.Delete')){
+                str = str.slice(0, posFocus) + str.slice(posFocus + 1);
+                posFocus = posFocus - 1;
+                //array.splice(posFocus, 1);
+                //posFocus = posFocus - 1;
+        } else if (event.target.closest('.Enter')) {
+                str = str.slice(0, posFocus) + '\r\n' + str.slice(posFocus);
+                posFocus++
+                //array.splice(posFocus, 0, '\n');
+               /* str = str.slice(0, posFocus-1) + '\n' + str.slice(posFocus, str.length);
+                console.log(str)*/
+        }       
+        else {
+            str = str + event.target.innerText
+            //array.splice(posFocus, 0, event.target.innerText);
+        }
+        //console.log(array);
+       // str = array.join('');
+        console.log(str);
+        TEXTAREA.innerHTML = str;
+        posFocus++;  
+        console.log('posFocus ', posFocus);
+    }
+} 
+const upKey = (event) => {
+    if(event.target.closest('.keyboard-key')){
+        if (event.target.classList.contains('keyboard-key')){
+            event.target.classList.remove('active');
+        }
+        else event.target.parentNode.parentNode.classList.remove('active');
+        TEXTAREA.setSelectionRange(posFocus, posFocus);  
+        TEXTAREA.focus();
+    }
+} 
+
+KEYBOARD.addEventListener('mousedown', downKey);
+KEYBOARD.addEventListener('mouseup', upKey);
+
+window.addEventListener('mouseup', (event) => {
+    KEYBOARD_KEYS.forEach((el)=> {
+        el.classList.remove('active');
+    });
+  });
+
+window.addEventListener('keydown', event => {
+    console.log(window.event.code);
+})
