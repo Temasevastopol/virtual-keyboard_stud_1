@@ -58,6 +58,7 @@
     background-color:rgb(44, 144, 111);
     border-radius: 100px;
 }
+
 .keyboard-key:hover{
     background-color:rgb(44, 144, 111)
 }
@@ -82,4 +83,8 @@
 .ArrowUp, .ConstolRight{
     font-weight: 600;
     background-color: #222222;
+}
+.pressCaps{
+    background-color:rgb(44, 144, 111);
+    border-radius: 100px;
 }
