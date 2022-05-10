@@ -834,7 +834,7 @@
      ],
      [
         {
-        "event_code" : "ConstolLeft",
+        "event_code" : "ControlLeft",
         "rus" :{
             "caseDown": "Ctrl",
             "caseUp": "Ctrl",
@@ -881,16 +881,16 @@
         {
         "event_code" : "Space",
         "rus" :{
-            "caseDown": "",
-            "caseUp": "",
-            "caps": "",
-            "capsShift": ""
+            "caseDown": "ty",
+            "caseUp": " ",
+            "caps": " ",
+            "capsShift": " "
             },
         "eng" :{
-            "caseDown": "",
-            "caseUp": "",
-            "caps": "",
-            "capsShift": ""
+            "caseDown": " ",
+            "caseUp": " ",
+            "caps": " ",
+            "capsShift": " "
             }    
         },
         {
@@ -954,7 +954,7 @@
             }
         },
         {
-        "event_code" : "ConstolRight",
+        "event_code" : "ControlRight",
         "rus" :{
             "caseDown": "Ctrl",
             "caseUp": "Ctrl",

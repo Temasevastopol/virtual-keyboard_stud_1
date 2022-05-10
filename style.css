@@ -54,10 +54,6 @@
     user-select: none;
     transition: border-radius 0.3s, background-color 0.3s;
 }
-.active{
-    background-color:rgb(44, 144, 111);
-    border-radius: 100px;
-}
 
 .keyboard-key:hover{
     background-color:rgb(44, 144, 111)
@@ -78,13 +74,17 @@
     width: 330px;
 }
 .Backspace, .Delete, .Tab, .CapsLock, .Enter, 
-.ShiftLeft, .ShiftRight, .ConstolLeft, .MetaLeft,
+.ShiftLeft, .ShiftRight, .ControlLeft, .MetaLeft,
 .AltLeft, .AltRight, .ArrowDown, .ArrowLeft, .ArrowRight, 
-.ArrowUp, .ConstolRight{
+.ArrowUp, .ControlRight{
     font-weight: 600;
     background-color: #222222;
 }
-.pressCaps{
+.pressCaps, .pressShift{
+    background-color:rgb(44, 144, 111);
+    border-radius: 100px;
+}
+.active{
     background-color:rgb(44, 144, 111);
     border-radius: 100px;
 }
