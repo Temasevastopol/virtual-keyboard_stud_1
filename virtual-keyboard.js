@@ -33,7 +33,6 @@ const LANGUAGE = document.createElement('p');
     LANGUAGE.innerText = 'Для переключения языка комбинация: левыe ctrl + alt';
     MAIN_CONTEINER.append(LANGUAGE);
 
-//console.log(keyboard_key.length);
 function addSpan(nameClass, lang, value){
     const spanInLang = document.createElement('span');
     spanInLang.classList.add(nameClass);
@@ -78,9 +77,16 @@ const caseDownEng = document.querySelectorAll('.eng .caseDown');
 caseDownEng.forEach(item => {
     item.classList.remove('hidden');
 })
-const KEYBOARD_KEYS = document.querySelectorAll('.keyboard-key');
 
-// нажатие на клавиши
+const capsLockBtn = document.querySelector('.CapsLock');
+
+const KEYBOARD_KEYS = document.querySelectorAll('.keyboard-key');
+const CASE_DOWN = document.querySelectorAll('.caseDown');
+const CASE_UP = document.querySelectorAll('.caseUp');
+const CAPS = document.querySelectorAll('.caps');
+const CAPS_SHIFT = document.querySelectorAll('.capsShift');
+
+// нажатие на клавиши мышкой
 let str = '';
 const array = [];
 let posFocus = 0;
@@ -108,32 +114,62 @@ const downKey = (event) => {
 
         if (event.target.closest('.Backspace')){
                 str = str.slice(0, posFocus-1) + str.slice(posFocus);
-                //array.splice(posFocus-1, 1);
                 posFocus = posFocus - 2;
         } else if (event.target.closest('.Tab')) {
                 str = str.slice(0, posFocus) + '  ' + str.slice(posFocus);
                 posFocus = posFocus + 1;
-                //array.splice(posFocus, 0, ' ', ' ', ' ', ' ');
-                //posFocus = posFocus + 3;
         } else if (event.target.closest('.Delete')){
                 str = str.slice(0, posFocus) + str.slice(posFocus + 1);
                 posFocus = posFocus - 1;
-                //array.splice(posFocus, 1);
-                //posFocus = posFocus - 1;
         } else if (event.target.closest('.Enter')) {
-                str = str.slice(0, posFocus) + '\r\n' + str.slice(posFocus);
-                posFocus++
-                //array.splice(posFocus, 0, '\n');
-               /* str = str.slice(0, posFocus-1) + '\n' + str.slice(posFocus, str.length);
-                console.log(str)*/
-        }       
+                str = str.slice(0, posFocus) + '\n' + str.slice(posFocus);
+                //posFocus++
+        } else if (event.target.closest('.CapsLock')){
+            if (event.target.classList.contains('keyboard-key')){
+                if (event.target.closest('.pressCaps')){
+                    event.target.classList.remove('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.remove('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden');
+                    })
+                }
+                else {
+                    event.target.classList.add('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.remove('hidden');
+                    })
+                }
+            }
+            else {
+                if (event.target.parentNode.parentNode.classList.contains('pressCaps')){
+                    event.target.parentNode.parentNode.classList.remove('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.remove('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden');
+                    })
+                }
+                else {
+                    event.target.parentNode.parentNode.classList.add('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.remove('hidden');
+                    })
+                }
+            } 
+            posFocus--;
+        } 
         else {
-            str = str + event.target.innerText
-            //array.splice(posFocus, 0, event.target.innerText);
+            str =  str.slice(0, posFocus) + event.target.innerText + str.slice(posFocus);
         }
-        //console.log(array);
-       // str = array.join('');
-        console.log(str);
         TEXTAREA.innerHTML = str;
         posFocus++;  
         console.log('posFocus ', posFocus);
@@ -143,6 +179,7 @@ const upKey = (event) => {
     if(event.target.closest('.keyboard-key')){
         if (event.target.classList.contains('keyboard-key')){
             event.target.classList.remove('active');
+            console.log('remove active')
         }
         else event.target.parentNode.parentNode.classList.remove('active');
         TEXTAREA.setSelectionRange(posFocus, posFocus);  
