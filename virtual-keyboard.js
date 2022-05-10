@@ -100,7 +100,7 @@ TEXTAREA.onclick = function (){
 console.log(posFocus);
 
 const specialBtn = ['.Backspace', '.Delete', '.Tab', '.CapsLock', '.Enter', '.ShiftLeft', '.ShiftRight', '.ConstolLeft', '.MetaLeft', '.AltLeft', '.AltRight', '.ConstolRight']
-const downKey = (event) => {
+const mouseDownKey = (event) => {
     if(event.target.closest('.keyboard-key')){
         KEYBOARD_KEYS.forEach(el => {
             if (el.classList.contains('active')){
@@ -123,7 +123,6 @@ const downKey = (event) => {
                 posFocus = posFocus - 1;
         } else if (event.target.closest('.Enter')) {
                 str = str.slice(0, posFocus) + '\n' + str.slice(posFocus);
-                //posFocus++
         } else if (event.target.closest('.CapsLock')){
             if (event.target.classList.contains('keyboard-key')){
                 if (event.target.closest('.pressCaps')){
@@ -133,6 +132,12 @@ const downKey = (event) => {
                     });
                     CAPS.forEach(el => {
                         el.classList.add('hidden');
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
                     })
                 }
                 else {
@@ -142,6 +147,12 @@ const downKey = (event) => {
                     });
                     CAPS.forEach(el => {
                         el.classList.remove('hidden');
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
                     })
                 }
             }
@@ -153,6 +164,12 @@ const downKey = (event) => {
                     });
                     CAPS.forEach(el => {
                         el.classList.add('hidden');
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
                     })
                 }
                 else {
@@ -163,39 +180,243 @@ const downKey = (event) => {
                     CAPS.forEach(el => {
                         el.classList.remove('hidden');
                     })
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
                 }
             } 
             posFocus--;
         } 
+        else if (event.target.closest('.ShiftLeft') || event.target.closest('.ShiftRight')){
+            console.log(event.target);
+            if (event.target.classList.contains('keyboard-key') || event.target.parentNode.parentNode.classList.contains('keyboard-key')){
+                if (event.target.parentNode.parentNode.classList.contains('keyboard-key')){
+                    event.target.parentNode.parentNode.classList.add('pressShift')
+                }
+                else event.target.classList.add('pressShift');
+                if (capsLockBtn.classList.contains('pressCaps')){
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.remove('hidden')
+                    })
+                } else {
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.remove('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
+                }
+            }
+        } else if (event.target.closest('.ControlLeft') || event.target.closest('.MetaLeft') || event.target.closest('.ControlRight') || event.target.closest('.AltLeft') || event.target.closest('.AltRight') ){
+            str = str.slice(0, posFocus) + '' + str.slice(posFocus);
+            posFocus--;
+        }
+        else if (event.target.closest('.Space')){
+            str = str.slice(0, posFocus) + ' ' + str.slice(posFocus);
+        }
         else {
             str =  str.slice(0, posFocus) + event.target.innerText + str.slice(posFocus);
         }
         TEXTAREA.innerHTML = str;
+        if (posFocus < 0){
+            posFocus = 0;
+        }
         posFocus++;  
         console.log('posFocus ', posFocus);
     }
 } 
-const upKey = (event) => {
+
+const mouseUpKey = (event) => {
     if(event.target.closest('.keyboard-key')){
         if (event.target.classList.contains('keyboard-key')){
             event.target.classList.remove('active');
             console.log('remove active')
         }
         else event.target.parentNode.parentNode.classList.remove('active');
+        if (event.target.closest('.ShiftLeft') || event.target.closest('.ShiftRight')){
+            console.log(event.target);
+            if (event.target.classList.contains('keyboard-key') || event.target.parentNode.parentNode.classList.contains('keyboard-key')){
+                if (event.target.parentNode.parentNode.classList.contains('keyboard-key')){
+                    event.target.parentNode.parentNode.classList.remove('pressShift')
+                }
+                else event.target.classList.remove('pressShift');
+                if (capsLockBtn.classList.contains('pressCaps')){
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.remove('hidden');
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden');
+                    })
+                } else {
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.remove('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
+                }
+            }
+        }
         TEXTAREA.setSelectionRange(posFocus, posFocus);  
         TEXTAREA.focus();
     }
 } 
 
-KEYBOARD.addEventListener('mousedown', downKey);
-KEYBOARD.addEventListener('mouseup', upKey);
+KEYBOARD.addEventListener('mousedown', mouseDownKey);
+KEYBOARD.addEventListener('mouseup', mouseUpKey);
+
+
 
 window.addEventListener('mouseup', (event) => {
     KEYBOARD_KEYS.forEach((el)=> {
         el.classList.remove('active');
     });
   });
+//нажатие на клавиши клавиатурой
+window.addEventListener('keydown', (event) => {
+    console.log(TEXTAREA.innerHTML)
+    if (event.repeat === true) return;
+     const letter = window.event.code;
+     KEYBOARD_KEYS.forEach((el)=> {
+         if (el.classList.contains(letter)){
+             console.log('буква ', letter);
+             if (el.classList.contains('active')){
+                 el.classList.remove('active')
+             }
+             else el.classList.add('active');
+             if (letter === 'CapsLock'){
+                if (el.classList.contains('pressCaps')){
+                    el.classList.remove('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.remove('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
+                } else {
+                    el.classList.add('pressCaps');
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.remove('hidden');
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
+                }    
+             }
+             if (letter === 'ShiftLeft' || letter === 'ShiftRight'){
+                if (capsLockBtn.classList.contains('pressCaps')){
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.remove('hidden')
+                    })
+                } else {
+                    CASE_DOWN.forEach(el=> {
+                        el.classList.add('hidden')
+                    });
+                    CASE_UP.forEach(el => {
+                        el.classList.remove('hidden');
+                    });
+                    CAPS.forEach(el => {
+                        el.classList.add('hidden')
+                    });
+                    CAPS_SHIFT.forEach(el => {
+                        el.classList.add('hidden')
+                    })
+                }
+             }
+       }  
+     });
+     str = TEXTAREA.innerText;
+     console.log(str);
+   }, false);
 
+window.addEventListener('keyup', (event) => {
+    const letter = window.event.code;
+     KEYBOARD_KEYS.forEach((el)=> {
+         el.classList.remove('active');
+     });
+     if (letter === 'ShiftLeft' || letter === 'ShiftRight'){
+        if (capsLockBtn.classList.contains('pressCaps')){
+            CASE_DOWN.forEach(el=> {
+                el.classList.add('hidden')
+            });
+            CASE_UP.forEach(el => {
+                el.classList.add('hidden');
+            });
+            CAPS.forEach(el => {
+                el.classList.remove('hidden');
+            });
+            CAPS_SHIFT.forEach(el => {
+                el.classList.add('hidden');
+            })
+        } else {
+            CASE_DOWN.forEach(el=> {
+                el.classList.remove('hidden')
+            });
+            CASE_UP.forEach(el => {
+                el.classList.add('hidden');
+            });
+            CAPS.forEach(el => {
+                el.classList.add('hidden')
+            });
+            CAPS_SHIFT.forEach(el => {
+                el.classList.add('hidden')
+            })
+        }
+     }
+});
+/*
 window.addEventListener('keydown', event => {
     console.log(window.event.code);
 })
+*/
