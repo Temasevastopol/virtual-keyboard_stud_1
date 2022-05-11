@@ -73,12 +73,15 @@ for(let i=0; i<keyboard_key.length; i++){
         KEYBOARD.append(KEYBOARD_ROW);
 }
 
-const caseDownEng = document.querySelectorAll('.eng .caseDown');
-caseDownEng.forEach(item => {
+const caseDown = document.querySelectorAll('.caseDown');
+caseDown.forEach(item => {
     item.classList.remove('hidden');
 })
 
 const capsLockBtn = document.querySelector('.CapsLock');
+const engSpan = document.querySelectorAll('.eng');
+const rusSpan = document.querySelectorAll('.rus');
+
 
 const KEYBOARD_KEYS = document.querySelectorAll('.keyboard-key');
 const CASE_DOWN = document.querySelectorAll('.caseDown');
@@ -88,18 +91,12 @@ const CAPS_SHIFT = document.querySelectorAll('.capsShift');
 
 // нажатие на клавиши мышкой
 let str = '';
-const array = [];
 let posFocus = 0;
-TEXTAREA.setSelectionRange(posFocus, posFocus);  
-TEXTAREA.focus();
 
 TEXTAREA.onclick = function (){
-    posFocus = TEXTAREA.selectionStart;
-    console.log('pos after click = ', posFocus);
+    posFocus = TEXTAREA.selectionStart; 
 }
-console.log(posFocus);
 
-const specialBtn = ['.Backspace', '.Delete', '.Tab', '.CapsLock', '.Enter', '.ShiftLeft', '.ShiftRight', '.ConstolLeft', '.MetaLeft', '.AltLeft', '.AltRight', '.ConstolRight']
 const mouseDownKey = (event) => {
     if(event.target.closest('.keyboard-key')){
         KEYBOARD_KEYS.forEach(el => {
@@ -191,7 +188,6 @@ const mouseDownKey = (event) => {
             posFocus--;
         } 
         else if (event.target.closest('.ShiftLeft') || event.target.closest('.ShiftRight')){
-            console.log(event.target);
             if (event.target.classList.contains('keyboard-key') || event.target.parentNode.parentNode.classList.contains('keyboard-key')){
                 if (event.target.parentNode.parentNode.classList.contains('keyboard-key')){
                     event.target.parentNode.parentNode.classList.add('pressShift')
@@ -240,7 +236,6 @@ const mouseDownKey = (event) => {
             posFocus = 0;
         }
         posFocus++;  
-        console.log('posFocus ', posFocus);
     }
 } 
 
@@ -248,11 +243,9 @@ const mouseUpKey = (event) => {
     if(event.target.closest('.keyboard-key')){
         if (event.target.classList.contains('keyboard-key')){
             event.target.classList.remove('active');
-            console.log('remove active')
         }
         else event.target.parentNode.parentNode.classList.remove('active');
         if (event.target.closest('.ShiftLeft') || event.target.closest('.ShiftRight')){
-            console.log(event.target);
             if (event.target.classList.contains('keyboard-key') || event.target.parentNode.parentNode.classList.contains('keyboard-key')){
                 if (event.target.parentNode.parentNode.classList.contains('keyboard-key')){
                     event.target.parentNode.parentNode.classList.remove('pressShift')
@@ -287,8 +280,6 @@ const mouseUpKey = (event) => {
                 }
             }
         }
-        TEXTAREA.setSelectionRange(posFocus, posFocus);  
-        TEXTAREA.focus();
     }
 } 
 
@@ -296,25 +287,33 @@ KEYBOARD.addEventListener('mousedown', mouseDownKey);
 KEYBOARD.addEventListener('mouseup', mouseUpKey);
 
 
-
-window.addEventListener('mouseup', (event) => {
+window.addEventListener('mouseup', () => {
     KEYBOARD_KEYS.forEach((el)=> {
         el.classList.remove('active');
     });
   });
+
 //нажатие на клавиши клавиатурой
 window.addEventListener('keydown', (event) => {
-    console.log(TEXTAREA.innerHTML)
     if (event.repeat === true) return;
      const letter = window.event.code;
      KEYBOARD_KEYS.forEach((el)=> {
          if (el.classList.contains(letter)){
-             console.log('буква ', letter);
              if (el.classList.contains('active')){
                  el.classList.remove('active')
-             }
-             else el.classList.add('active');
-             if (letter === 'CapsLock'){
+             } else el.classList.add('active');
+             if (letter === 'Backspace'){
+                str = str.slice(0, posFocus-1) + str.slice(posFocus);
+                posFocus = posFocus - 2;
+            } else if (letter === 'Tab') {
+                str = str.slice(0, posFocus) + '  ' + str.slice(posFocus);
+                posFocus = posFocus + 1;
+            } else if (letter === 'Delete'){
+                str = str.slice(0, posFocus) + str.slice(posFocus + 1);
+                posFocus = posFocus - 1;
+            } else if (letter === 'Enter') {
+                str = str.slice(0, posFocus) + '\n' + str.slice(posFocus);
+            } else if (letter === 'CapsLock'){
                 if (el.classList.contains('pressCaps')){
                     el.classList.remove('pressCaps');
                     CASE_DOWN.forEach(el=> {
@@ -344,8 +343,7 @@ window.addEventListener('keydown', (event) => {
                         el.classList.add('hidden')
                     })
                 }    
-             }
-             if (letter === 'ShiftLeft' || letter === 'ShiftRight'){
+            } else if (letter === 'ShiftLeft' || letter === 'ShiftRight'){
                 if (capsLockBtn.classList.contains('pressCaps')){
                     CASE_DOWN.forEach(el=> {
                         el.classList.add('hidden')
@@ -373,12 +371,32 @@ window.addEventListener('keydown', (event) => {
                         el.classList.add('hidden')
                     })
                 }
-             }
-       }  
-     });
-     str = TEXTAREA.innerText;
-     console.log(str);
-   }, false);
+
+            } else if (event.altKey && event.ctrlKey){
+                console.log('hello');
+                engSpan.forEach(item => {
+                  if (item.classList.contains('hidden')){
+                      item.classList.remove('hidden')
+                  }
+                  else item.classList.add('hidden')
+                });
+                rusSpan.forEach(item => {
+                    if (item.classList.contains('hidden')){
+                        item.classList.remove('hidden')
+                    }
+                    else item.classList.add('hidden')
+                })
+            } else if (letter === 'ControlLeft' || letter === 'MetaLeft' || letter === 'ControlRight' || letter === 'AltLeft' || letter === 'AltRight' ){
+                str = str.slice(0, posFocus) + '' + str.slice(posFocus);
+                posFocus--;
+            } else {
+                str = str.slice(0, posFocus) + window.event.key + str.slice(posFocus);
+            }
+        }  
+    });
+     TEXTAREA.innerHTML = str;
+     posFocus++; 
+   });
 
 window.addEventListener('keyup', (event) => {
     const letter = window.event.code;
@@ -415,8 +433,3 @@ window.addEventListener('keyup', (event) => {
         }
      }
 });
-/*
-window.addEventListener('keydown', event => {
-    console.log(window.event.code);
-})
-*/
