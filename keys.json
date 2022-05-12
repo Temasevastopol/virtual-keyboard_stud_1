@@ -881,7 +881,7 @@
         {
         "event_code" : "Space",
         "rus" :{
-            "caseDown": "ty",
+            "caseDown": " ",
             "caseUp": " ",
             "caps": " ",
             "capsShift": " "
